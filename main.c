@@ -12,7 +12,6 @@ int main() {
     int noOfFoodTypes;
     printf("Please input number of food types\n");
     scanf("%d", &noOfFoodTypes);
-    printf("%d\n", noOfFoodTypes);
 
     printf("Please input food types (each on a new line, may contain spaces)\n");
     char ** foods;
@@ -26,10 +25,9 @@ int main() {
     char *** specificFood = (char***)malloc(noOfFoodTypes * sizeof(char**));
     double ** prices = (double**)malloc(noOfFoodTypes * sizeof(double*));
     for(int i=0; i<noOfFoodTypes; i++) {
-        printf("Please input no of speciffic foods for food%s\n",foods[i]);
+        printf("Please input no of speciffic foods for food %s\n",foods[i]);
         scanf("%d", &noOfSpecificFood[i]);
         getchar();
-        printf("%d\n", noOfSpecificFood[i]);
 
         specificFood[i] = (char**)malloc(noOfSpecificFood[i]* sizeof(char*));
         prices[i] = (double*)malloc(noOfSpecificFood[i]* sizeof(double));
@@ -41,14 +39,12 @@ int main() {
             char line[MAX_LINE];
             gets(line);
             sscanf(line, "%d", &prices[i][j]);
-            printf("%d\n",prices[i][j]);
         }
     }
 
     int noOfDrinks;
     printf("Please input no of drinks\n");
     scanf("%d", &noOfDrinks);
-    printf("%d\n", noOfDrinks);
 
     int * pricesDrinks = (int*)malloc(noOfDrinks * sizeof(int));
     char ** drinks = (char**)malloc(noOfDrinks * sizeof(char*));
@@ -60,7 +56,6 @@ int main() {
         char line[MAX_LINE];
         gets(line);
         sscanf(line, "%d", &pricesDrinks[i]);
-        printf("%s  %d", drinks[i],pricesDrinks[i]);
     }
 
     printf("The food data is:\n");
@@ -73,27 +68,37 @@ int main() {
     }
     printf("The drinks data is:\ndrinks:");
     for(int i=0;i<noOfDrinks;i++){
-        printf("%s,", drinks[i]);
+        if(i<(noOfDrinks-1))
+            printf("%s,", drinks[i]);
+        else printf("%s", drinks[i]);
     }
 
-    printf("prices:");
+    printf("\nprices:\n");
     for(int i=0;i<noOfDrinks;i++) {
-        printf("%d,", pricesDrinks[i]);
+        if(i<(noOfDrinks-1))
+            printf("%d,", pricesDrinks[i]);
+        else printf("%d", pricesDrinks[i]);
     }
 
     for(int i=0;i<noOfFoodTypes;i++) {
-        for(int j=0;j<noOfSpecificFood;j++) {
+        for(int j=0;j<noOfSpecificFood[i];j++) {
             free(specificFood[i][j]);
         }
-        free(specificFood[i]);
         free(prices[i]);
+        free(specificFood[i]);
         free(foods[i]);
     }
+
     free(specificFood);
     free(prices);
     free(foods);
     free(noOfSpecificFood);
 
+    for(int i=0;i<noOfDrinks;i++){
+        free(prices[i]);
+        free(drinks[i]);
+    }
+    free(drinks);
     return 0;
 }
 
