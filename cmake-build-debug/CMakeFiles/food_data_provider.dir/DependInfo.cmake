@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "D:/Facultate/Computer Programming/food-data-provider/main.c" "D:/Facultate/Computer Programming/food-data-provider/cmake-build-debug/CMakeFiles/food_data_provider.dir/main.c.obj"
+  "D:/Facultate/Computer Programming/Lab/food-data-provider/main.c" "D:/Facultate/Computer Programming/Lab/food-data-provider/cmake-build-debug/CMakeFiles/food_data_provider.dir/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

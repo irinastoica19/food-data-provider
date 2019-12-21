@@ -1,4 +1,4 @@
-# Install script for directory: D:/Facultate/Computer Programming/food-data-provider
+# Install script for directory: D:/Facultate/Computer Programming/Lab/food-data-provider
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/Facultate/Computer Programming/food-data-provider/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Facultate/Computer Programming/Lab/food-data-provider/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

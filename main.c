@@ -9,6 +9,13 @@ void readDrinks(char * drinks);
 
 int main() {
 
+    FILE * foodDataFile;
+    foodDataFile = fopen("data.txt", "w");
+    if(foodDataFile==NULL) {
+        perror("File could not be open");
+        exit(-1);
+    }
+
     int noOfFoodTypes;
     printf("Please input number of food types\n");
     scanf("%d", &noOfFoodTypes);
@@ -18,7 +25,7 @@ int main() {
     foods = (char**)malloc(noOfFoodTypes* sizeof(char*));
     for(int i=0;i<noOfFoodTypes;i++) {
         foods[i] = (char*)malloc(MAX_FOOD_NAME* sizeof(char));
-        scanf("%s",foods[i]);
+        scanf("%s", foods[i]);
     }
 
     int * noOfSpecificFood = (int*)malloc(noOfFoodTypes * sizeof(int));
@@ -28,7 +35,7 @@ int main() {
         printf("Please input no of speciffic foods for food %s\n",foods[i]);
         scanf("%d", &noOfSpecificFood[i]);
         getchar();
-
+        
         specificFood[i] = (char**)malloc(noOfSpecificFood[i]* sizeof(char*));
         prices[i] = (double*)malloc(noOfSpecificFood[i]* sizeof(double));
 
@@ -80,6 +87,22 @@ int main() {
         else printf("%d", pricesDrinks[i]);
     }
 
+    for(int i=0; i<noOfFoodTypes; i++){
+        fprintf(foodDataFile, "%s %d: ", foods[i], noOfSpecificFood[i]);
+        for(int j=0; j<noOfSpecificFood[i]; j++){
+            fprintf(foodDataFile, "(%s - %d) ", specificFood[i][j], prices[i][j]);
+        }
+        fprintf(foodDataFile, "\n");
+    }
+    fprintf(foodDataFile, "%d", noOfDrinks);
+    for(int i=0; i<noOfDrinks; i++){
+        fprintf(foodDataFile, "(%s - %d)", drinks[i], pricesDrinks[i]);
+        if(i<noOfDrinks-1)
+            fprintf(foodDataFile, ", ");
+    }
+    fclose(foodDataFile);
+
+
     for(int i=0;i<noOfFoodTypes;i++) {
         for(int j=0;j<noOfSpecificFood[i];j++) {
             free(specificFood[i][j]);
@@ -95,10 +118,10 @@ int main() {
     free(noOfSpecificFood);
 
     for(int i=0;i<noOfDrinks;i++){
-        free(prices[i]);
         free(drinks[i]);
     }
     free(drinks);
+    free(pricesDrinks);
     return 0;
 }
 
