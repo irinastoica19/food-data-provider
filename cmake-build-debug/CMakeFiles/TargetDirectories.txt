@@ -1,3 +1,3 @@
-D:/Facultate/Computer Programming/food-data-provider/cmake-build-debug/CMakeFiles/food_data_provider.dir
-D:/Facultate/Computer Programming/food-data-provider/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Facultate/Computer Programming/food-data-provider/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/Facultate/Computer Programming/Lab/food-data-provider/cmake-build-debug/CMakeFiles/food_data_provider.dir
+D:/Facultate/Computer Programming/Lab/food-data-provider/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Facultate/Computer Programming/Lab/food-data-provider/cmake-build-debug/CMakeFiles/rebuild_cache.dir
